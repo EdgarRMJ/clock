@@ -7,7 +7,7 @@ window.onload = function()
     var info = document.getElementById("info");
 
     
-    submitButton.onclick = function(e)
+    submitButton.onclick = function()
     {
         var tmpString = "";
         for (var i = 0; i < myForm.courseName.length; i++)
@@ -17,7 +17,16 @@ window.onload = function()
         }
         
         info.innerHTML += tmpString + "<br>";
-        //e.preventDefault();
+        
     }
+
+    for(var i = 0; i< myForm.acceptationOfToS.length; i++)
+    {
+        myForm.acceptationOfToS[i].onclick = function(e)
+        {
+            submitButton.disabled = this.value === "true";
+        }
+    }
+   
 }
 
